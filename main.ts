@@ -1,7 +1,7 @@
 enum vocabulary {
-    //% block="X"
+    //% block="Open Light"
     Type_x,
-    //% block="Y"
+    //% block="Close Light"
     Type_y,
     //% block="H"
     Type_h,
@@ -9,7 +9,7 @@ enum vocabulary {
     Type_w
 }
 
-//% weight=100 color=#0fbc11 icon="\u130"
+//% weight=100 color=#0fbc11 icon="\uf130"
 namespace asr {
 
     function i2cwrite(addr: number, reg: number, value: number) {
@@ -31,7 +31,7 @@ namespace asr {
         return val;
     }
 
-    //% block="Face in Camera Type %vocabulary"
+    //% block="the microphone hears %vocabulary"
     export function asrmain(vocabulary: vocabulary): number {
         let zbx
         let buffer = pins.i2cReadBuffer(11, 1)
