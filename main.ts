@@ -9,7 +9,7 @@ enum vocabulary {
     Type_w
 }
 
-//% weight=100 color=#0fbc11 icon="\uf3c9"
+//% weight=100 color=#0fbc11 icon="\uf130"
 namespace asr {
 
     function i2cwrite(addr: number, reg: number, value: number) {
