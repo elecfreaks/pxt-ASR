@@ -45,7 +45,7 @@ enum vocabularyList {
 namespace asr {
 	//% block="the microphone hears wake-up call 'Hi,Shaun'"
 	export function asrawaken(): boolean {
-	     let buffer = pins.i2cReadBuffer(0x11, 1)
+	     let buffer = pins.i2cReadNumber(0x0B, 1)
 
         if (buffer[0] == 0x01) {
             return true
@@ -58,7 +58,7 @@ namespace asr {
 	//% vocabulary.fieldEditor="gridpicker"
     //% vocabulary.fieldOptions.columns=3
     export function asrmain(vocabulary: vocabularyList): boolean {
-        let buffer = pins.i2cReadBuffer(0x11, 1)
+        let buffer = pins.i2cReadNumber(0x0B, 1)
 
 
         if (buffer[0] == 0x10 && vocabulary == 1) {
