@@ -1,14 +1,15 @@
 {
     "name": "pxt-asr",
-    "version": "0.0.0",
-    "description": "",
+    "version": "0.1.0",
+    "description": "Micro:bit Automatic Speech Recognition",
     "dependencies": {
         "core": "*",
         "radio": "*"
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+		"_locales/zh/pxt-asr-strings.json"
     ],
     "testFiles": [
         "test.ts"
