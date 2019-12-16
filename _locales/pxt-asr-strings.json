@@ -1,9 +1,9 @@
 {
+  "asr.asrawaken|block": "the microphone hears wake-up call 'Hi,Shaun'",
   "asr.asrmain|block": "the microphone hears %vocabulary",
   "vocabularyList.Backwards|block": "Backwards",
   "vocabularyList.Close_device|block": "Close device",
   "vocabularyList.Continue_operation|block": "Continue operation",
-  "vocabularyList.Hi_Shaun|block": "Hi,Shaun",
   "vocabularyList.Move_forward|block": "Move forward",
   "vocabularyList.Obstacle_avoidance_mode|block": "Obstacle avoidance mode",
   "vocabularyList.One_level_down|block": "One level down",
