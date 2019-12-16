@@ -1,9 +1,9 @@
 {
-  "asr.asrmain|block": "当麦克风听到 %vocabulary",
+  "asr.asrawaken|block": "当麦克风听到唤醒词 '你好小恩'",
+  "asr.asrmain|block": "当麦克风听到识别词 %vocabulary",
   "vocabularyList.Backwards|block": "向后退",
   "vocabularyList.Close_device|block": "关闭设备",
   "vocabularyList.Continue_operation|block": "继续运行",
-  "vocabularyList.Hi_Shaun|block": "你好小恩",
   "vocabularyList.Move_forward|block": "向前进",
   "vocabularyList.Obstacle_avoidance_mode|block": "避障模式",
   "vocabularyList.One_level_down|block": "降低一挡",
