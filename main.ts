@@ -42,7 +42,6 @@ enum vocabularyList {
 }
 
 //% weight=100 color=#0fbc11 icon="\uf130"
-//% block="ASR"
 namespace asr {
 	//% block="the microphone hears wake-up call 'Hi,Shaun'"
 	export function asrawaken(): boolean {
