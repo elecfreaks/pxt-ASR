@@ -61,67 +61,67 @@ namespace asr {
         let buffer = pins.i2cReadNumber(0x0B, 1)
 
 
-        if (buffer == 0x10 && vocabulary == 1) {
+        if (buffer == 0x10 && vocabulary == 0) {
             return true
         }
-        if (buffer == 0x11 && vocabulary == 2) {
+        if (buffer == 0x11 && vocabulary == 1) {
             return true
         }
-        if (buffer == 0x12 && vocabulary == 3) {
+        if (buffer == 0x12 && vocabulary == 2) {
             return true
         }
-        if (buffer == 0x13 && vocabulary == 4) {
+        if (buffer == 0x13 && vocabulary == 3) {
             return true
         }
-        if (buffer == 0x14 && vocabulary == 5) {
+        if (buffer == 0x14 && vocabulary == 4) {
             return true
         }
-        if (buffer == 0x15 && vocabulary == 6) {
+        if (buffer == 0x15 && vocabulary == 5) {
             return true
         }
-        if (buffer == 0x16 && vocabulary == 7) {
+        if (buffer == 0x16 && vocabulary == 6) {
             return true
         }
-        if (buffer == 0x17 && vocabulary == 8) {
+        if (buffer == 0x17 && vocabulary == 7) {
             return true
         }
-        if (buffer == 0x18 && vocabulary == 9) {
+        if (buffer == 0x18 && vocabulary == 8) {
             return true
         }
-        if (buffer == 0x20 && vocabulary == 10) {
+        if (buffer == 0x20 && vocabulary == 9) {
             return true
         }
-        if (buffer == 0x21 && vocabulary == 11) {
+        if (buffer == 0x21 && vocabulary == 10) {
             return true
         }
-        if (buffer == 0x22 && vocabulary == 12) {
+        if (buffer == 0x22 && vocabulary == 11) {
             return true
         }
-        if (buffer == 0x23 && vocabulary == 13) {
+        if (buffer == 0x23 && vocabulary == 12) {
             return true
         }
-        if (buffer == 0x24 && vocabulary == 14) {
+        if (buffer == 0x24 && vocabulary == 13) {
             return true
         }
-        if (buffer == 0x25 && vocabulary == 15) {
+        if (buffer == 0x25 && vocabulary == 14) {
             return true
         }
-        if (buffer == 0x31 && vocabulary == 16) {
+        if (buffer == 0x31 && vocabulary == 15) {
             return true
         }
-        if (buffer == 0x32 && vocabulary == 17) {
+        if (buffer == 0x32 && vocabulary == 16) {
             return true
         }
-        if (buffer == 0x33 && vocabulary == 18) {
+        if (buffer == 0x33 && vocabulary == 17) {
             return true
         }
-        if (buffer == 0x34 && vocabulary == 19) {
+        if (buffer == 0x34 && vocabulary == 18) {
             return true
         }
-        if (buffer == 0x35 && vocabulary == 20) {
+        if (buffer == 0x35 && vocabulary == 19) {
             return true
         }
-        if (buffer == 0x36 && vocabulary == 21) {
+        if (buffer == 0x36 && vocabulary == 20) {
             return true
         }
         else {
