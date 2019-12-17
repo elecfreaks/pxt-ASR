@@ -43,12 +43,20 @@ enum vocabularyList {
 
 //% weight=100 color=#0fbc11 icon="\uf130"
 namespace asr {
+   
+    let bt: number
     //% block="the microphone hears wake-up call 'Hi,Shaun'"
     export function asrawaken(): boolean {
         let buffer = pins.i2cReadNumber(0x0B, 1)
+        if (buffer == 0x00) {
 
-        if (buffer == 0x01) {
+        }
+        else {
+            bt = buffer
+        }
+        if (bt == 0x01) {
             return true
+            bt = 0x00
         }
         else {
             return false
@@ -59,69 +67,74 @@ namespace asr {
     //% vocabulary.fieldOptions.columns=3
     export function asrmain(vocabulary: vocabularyList): boolean {
         let buffer = pins.i2cReadNumber(0x0B, 1)
+        if (buffer == 0x00) {
 
+        }
+        else {
+            bt = buffer
+        }
 
-        if (buffer == 0x10 && vocabulary == 0) {
+        if (bt == 0x10 && vocabulary == 0) {
             return true
         }
-        if (buffer == 0x11 && vocabulary == 1) {
+        else if (bt == 0x11 && vocabulary == 1) {
             return true
         }
-        if (buffer == 0x12 && vocabulary == 2) {
+        else if (bt == 0x12 && vocabulary == 2) {
             return true
         }
-        if (buffer == 0x13 && vocabulary == 3) {
+        else if (bt == 0x13 && vocabulary == 3) {
             return true
         }
-        if (buffer == 0x14 && vocabulary == 4) {
+        else if (bt == 0x14 && vocabulary == 4) {
             return true
         }
-        if (buffer == 0x15 && vocabulary == 5) {
+        else if (bt == 0x15 && vocabulary == 5) {
             return true
         }
-        if (buffer == 0x16 && vocabulary == 6) {
+        else if (bt == 0x16 && vocabulary == 6) {
             return true
         }
-        if (buffer == 0x17 && vocabulary == 7) {
+        else if (bt == 0x17 && vocabulary == 7) {
             return true
         }
-        if (buffer == 0x18 && vocabulary == 8) {
+        else if (bt == 0x18 && vocabulary == 8) {
             return true
         }
-        if (buffer == 0x20 && vocabulary == 9) {
+        else if (bt == 0x20 && vocabulary == 9) {
             return true
         }
-        if (buffer == 0x21 && vocabulary == 10) {
+        else if (bt == 0x21 && vocabulary == 10) {
             return true
         }
-        if (buffer == 0x22 && vocabulary == 11) {
+        else if (bt == 0x22 && vocabulary == 11) {
             return true
         }
-        if (buffer == 0x23 && vocabulary == 12) {
+        else if (bt == 0x23 && vocabulary == 12) {
             return true
         }
-        if (buffer == 0x24 && vocabulary == 13) {
+        else if (bt == 0x24 && vocabulary == 13) {
             return true
         }
-        if (buffer == 0x25 && vocabulary == 14) {
+        else if (bt == 0x25 && vocabulary == 14) {
             return true
         }
-        if (buffer == 0x31 && vocabulary == 15) {
+        else if (bt == 0x31 && vocabulary == 15) {
             return true
         }
-        if (buffer == 0x32 && vocabulary == 16) {
+        else if (bt == 0x32 && vocabulary == 16) {
             return true
         }
-        if (buffer == 0x33 && vocabulary == 17) {
+        else if (bt == 0x33 && vocabulary == 17) {
             return true
         }
-        if (buffer == 0x34 && vocabulary == 18) {
+        else if (bt == 0x34 && vocabulary == 18) {
             return true
         }
-        if (buffer == 0x35 && vocabulary == 19) {
+        else if (bt == 0x35 && vocabulary == 19) {
             return true
         }
-        if (buffer == 0x36 && vocabulary == 20) {
+        else if (bt == 0x36 && vocabulary == 20) {
             return true
         }
         else {
