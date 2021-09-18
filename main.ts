@@ -1,146 +1,100 @@
-enum vocabularyList {
-    //% block="Turn on the lights" 
-    Turn_on_the_lights,
-    //% block="Turn off lights"
-    Turn_off_lights,
-    //% block="Turn left"
-    Turn_left,
-    //% block="Turn right"
-    Turn_right,
-    //% block="Move forward"
-    Move_forward,
-    //% block="Backwards"
-    Backwards,
-    //% block="Patrolling mode"
-    Patrolling_mode,
-    //% block="Obstacle avoidance mode"
-    Obstacle_avoidance_mode,
-    //% block="Parking"
-    Parking,
-    //% block="Open device"
-    Open_device,
-    //% block="Close device"
-    Close_device,
-    //% block="Suspend_operation"
-    Suspend_operation,
-    //% block="Continue operation"
-    Continue_operation,
-    //% block="One level up"
-    One_level_up,
-    //% block="One level down"
-    One_level_down,
-    //% block="Run function one"
-    Run_function_one,
-    //% block="Run function two"
-    Run_function_two,
-    //% block="Run function three"
-    Run_function_three,
-    //% block="Run function four"
-    Run_function_four,
-    //% block="Run function five"
-    Run_function_five
-}
+/////////ASR
 
 //% weight=100 color=#0fbc11 icon="\uf130"
 namespace asr {
+export enum vocabularyList {
+    //% block="Hi,Shaun"
+    Hi_Shaun = 1,
+    //% block="Turn on lights" 
+    Turn_on_lights = 16,
+    //% block="Turn off lights"
+    Turn_off_lights = 17,
+    //% block="Turn left"
+    Turn_left = 18,
+    //% block="Turn right"
+    Turn_right = 19,
+    //% block="Go forward"
+    Go_forward = 20,
+    //% block="Go Backwards"
+    Go_Backwards = 21,
+    //% block="Line Tracking"
+    Line_tacking = 22,
+    //% block="Avoid object"
+    Avoid_object = 23,
+    //% block="Stop car"
+    Stop_car = 24,
+    //% block="Start device"
+    Start_device = 32,
+    //% block="Close device"
+    Close_device = 33,
+    //% block="Pause device"
+    Pause_device = 34,
+    //% block="Keep going"
+    Keep_going = 35,
+    //% block="Add a level"
+    Add_a_level = 36,
+    //% block="Lower a level"
+    Lower_a_level = 37,
+    //% block="Music on"
+    Music_on = 38,
+    //% block="Music off"
+    Music_off = 39,
+    //% block="Switch music"
+    Switch_music = 40,
+    //% block="Execute function one"
+    Execute_function_one = 49,
+    //% block="Execute function two"
+    Execute_function_two = 50,
+    //% block="Learning entry 1"
+    Learning_entry_1 = 80,
+    //% block="Learning entry 2"
+    Learning_entry_2 = 81,
+    //% block="Learning entry 3"
+    Learning_entry_3 = 82,
+    //% block="Learning entry 4"
+    Learning_entry_4 = 83,
+    //% block="Learning entry 5"
+    Learning_entry_5 = 84,
+    //% block="Learning entry 6"
+    Learning_entry_6 = 85,
+    //% block="Learning entry 7"
+    Learning_entry_7 = 86,
+    //% block="Learning entry 8"
+    Learning_entry_8 = 87,
+    //% block="Learning entry 9"
+    Learning_entry_9 = 88,
+    //% block="Learning entry 10"
+    Learning_entry_10 = 89
+}
+
    
-    let bt: number
-    //% block="the microphone hears wake-up call 'Hi,Shaun'"
-    export function asrawaken(): boolean {
-        let buffer = pins.i2cReadNumber(0x0B, 1)
-        if (buffer == 0x00) {
-
-        }
-        else {
-            bt = buffer
-        }
-        if (bt == 0x01) {
-            return true
-            bt = 0x00
-        }
-        else {
-            return false
-        }
+    let asrEventId = 3500
+    let lastvoc = 0
+    //% block="ASR sensor IIC port hear %vocabulary"
+    //% subcategory=ASR group="IIC Port"
+    //% vocabulary.fieldEditor="gridpicker" vocabulary.fieldOptions.columns=3
+    export function onASR(vocabulary: vocabularyList, handler: () => void) {
+        control.onEvent(asrEventId, vocabulary, handler);
+        control.inBackground(() => {
+            while (true) {
+                const voc = pins.i2cReadNumber(0x0B, 1)
+                if (voc != lastvoc) {
+                    lastvoc = voc
+                    control.raiseEvent(asrEventId, lastvoc);
+                }
+                basic.pause(50);
+            }
+        })
     }
-    //% block="the microphone hears %vocabulary"
-    //% vocabulary.fieldEditor="gridpicker"
-    //% vocabulary.fieldOptions.columns=3
-    export function asrmain(vocabulary: vocabularyList): boolean {
-        let buffer = pins.i2cReadNumber(0x0B, 1)
-        if (buffer == 0x00) {
-
-        }
-        else {
-            bt = buffer
-        }
-
-        if (bt == 0x10 && vocabulary == 0) {
-            return true
-        }
-        else if (bt == 0x11 && vocabulary == 1) {
-            return true
-        }
-        else if (bt == 0x12 && vocabulary == 2) {
-            return true
-        }
-        else if (bt == 0x13 && vocabulary == 3) {
-            return true
-        }
-        else if (bt == 0x14 && vocabulary == 4) {
-            return true
-        }
-        else if (bt == 0x15 && vocabulary == 5) {
-            return true
-        }
-        else if (bt == 0x16 && vocabulary == 6) {
-            return true
-        }
-        else if (bt == 0x17 && vocabulary == 7) {
-            return true
-        }
-        else if (bt == 0x18 && vocabulary == 8) {
-            return true
-        }
-        else if (bt == 0x20 && vocabulary == 9) {
-            return true
-        }
-        else if (bt == 0x21 && vocabulary == 10) {
-            return true
-        }
-        else if (bt == 0x22 && vocabulary == 11) {
-            return true
-        }
-        else if (bt == 0x23 && vocabulary == 12) {
-            return true
-        }
-        else if (bt == 0x24 && vocabulary == 13) {
-            return true
-        }
-        else if (bt == 0x25 && vocabulary == 14) {
-            return true
-        }
-        else if (bt == 0x31 && vocabulary == 15) {
-            return true
-        }
-        else if (bt == 0x32 && vocabulary == 16) {
-            return true
-        }
-        else if (bt == 0x33 && vocabulary == 17) {
-            return true
-        }
-        else if (bt == 0x34 && vocabulary == 18) {
-            return true
-        }
-        else if (bt == 0x35 && vocabulary == 19) {
-            return true
-        }
-        else if (bt == 0x36 && vocabulary == 20) {
-            return true
-        }
-        else {
-            return false
-        }
-
+    //% block="ASR sensor IIC port enter learning-model"
+    //% subcategory=ASR group="IIC Port"
+    export function setASRLearn(): void {
+        pins.i2cWriteNumber(0x0B, 0x50, NumberFormat.Int8LE)
+    }
+    //% block="ASR sensor IIC port factory reset"
+    //% subcategory=ASR group="IIC Port"
+    export function delASRLearn(): void {
+        pins.i2cWriteNumber(0x0B, 0x60, NumberFormat.Int8LE)
     }
 
 

@@ -4,16 +4,24 @@
     "description": "Micro:bit Automatic Speech Recognition",
     "dependencies": {
         "core": "*",
-        "radio": "*"
+        "radio": "*",
+        "microphone": "*"
     },
     "files": [
         "README.md",
         "main.ts",
-		"_locales/zh/pxt-asr-strings.json"
+        "_locales/zh/pxt-asr-strings.json"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": false,
+    "targetVersions": {
+        "target": "4.0.11",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
     "preferredEditor": "tsprj"
 }
