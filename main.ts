@@ -71,7 +71,6 @@ export enum vocabularyList {
     let asrEventId = 3500
     let lastvoc = 0
     //% block="ASR sensor IIC port hear %vocabulary"
-    //% subcategory=ASR group="IIC Port"
     //% vocabulary.fieldEditor="gridpicker" vocabulary.fieldOptions.columns=3
     export function onASR(vocabulary: vocabularyList, handler: () => void) {
         control.onEvent(asrEventId, vocabulary, handler);
@@ -87,12 +86,10 @@ export enum vocabularyList {
         })
     }
     //% block="ASR sensor IIC port enter learning-model"
-    //% subcategory=ASR group="IIC Port"
     export function setASRLearn(): void {
         pins.i2cWriteNumber(0x0B, 0x50, NumberFormat.Int8LE)
     }
     //% block="ASR sensor IIC port factory reset"
-    //% subcategory=ASR group="IIC Port"
     export function delASRLearn(): void {
         pins.i2cWriteNumber(0x0B, 0x60, NumberFormat.Int8LE)
     }
