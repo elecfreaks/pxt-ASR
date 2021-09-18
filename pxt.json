@@ -9,7 +9,8 @@
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "_locales/zh/pxt-asr-strings.json"
     ],
     "testFiles": [
         "test.ts"
